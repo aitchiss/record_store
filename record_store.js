@@ -12,6 +12,18 @@ RecordStore.prototype = {
 
   printStoreInfo: function(){
     return this.name + ": " + this.city
+  },
+
+  printInventory: function(){
+    var inventoryList =""
+    this.inventory.forEach(function(record){
+      inventoryList += record.artist + ": '" + record.title + "'"
+
+      if (this.inventory.indexOf(record) !== (this.inventory.length - 1)){
+        inventoryList += "\n"
+      }
+    }.bind(this))
+    return inventoryList
   }
 }
 
