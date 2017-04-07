@@ -33,7 +33,7 @@ RecordStore.prototype = {
       if (records.indexOf(record) !== (records.length - 1)){
         inventoryList += "\n"
       }
-    }.bind(this))
+    })
     return inventoryList
   },
 
