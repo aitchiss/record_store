@@ -3,7 +3,12 @@ var RecordStore = function(name, city, initialBalance){
   this.city = city
   this.balance = initialBalance
   this.inventory = []
+}
 
+RecordStore.prototype = {
+  addRecord: function(record){
+    this.inventory.push(record)
+  }
 }
 
 

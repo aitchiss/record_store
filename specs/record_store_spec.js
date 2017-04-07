@@ -20,4 +20,12 @@ describe('RecordStore tests', function(){
   it('has a 10000 balance', function(){
     assert.strictEqual(10000, recordStore.balance)
   })
+
+  it('can add records to inventory'), function(){
+    var record1 = new Record('Bruce Springsteen', 'Darkness on the Edge of Town', 'rock', 1299)
+    var record2 = new Record('The Hold Steady', 'Stay Positive', 'rock', 1199)
+    recordStore.addRecord(record1)
+    recordStore.addRecord(record2)
+    assert.strictEqual(2, recordStore.inventory.length)
+  }
 })
