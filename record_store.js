@@ -30,6 +30,12 @@ RecordStore.prototype = {
     this.balance += record.price
     var index = this.inventory.indexOf(record)
     this.inventory.splice(index, 1)
+  },
+
+  getInventoryValue: function(){
+    return this.inventory.reduce(function(acc, record){
+      return acc + record.price
+    }, 0)
   }
 }
 

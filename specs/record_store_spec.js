@@ -70,4 +70,12 @@ describe('RecordStore tests', function(){
     recordStore.sell(record1)
     assert.strictEqual(record2, recordStore.inventory[0])
   })
+
+  it('can calculate value of inventory', function(){
+    var record1 = new Record('Bruce Springsteen', 'Darkness on the Edge of Town', 'rock', 1200)
+    var record2 = new Record('The Hold Steady', 'Stay Positive', 'rock', 1100)
+    recordStore.addRecord(record1)
+    recordStore.addRecord(record2)
+    assert.strictEqual(2300, recordStore.getInventoryValue())
+  })
 })
