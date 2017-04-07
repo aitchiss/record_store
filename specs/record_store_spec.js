@@ -78,4 +78,13 @@ describe('RecordStore tests', function(){
     recordStore.addRecord(record2)
     assert.strictEqual(2300, recordStore.getInventoryValue())
   })
+
+  it('can report finances - balance/inventory value', function(){
+    var record1 = new Record('Bruce Springsteen', 'Darkness on the Edge of Town', 'rock', 1200)
+    var record2 = new Record('The Hold Steady', 'Stay Positive', 'rock', 1100)
+    recordStore.addRecord(record1)
+    recordStore.addRecord(record2)
+    var expectedString = 'Current balance: 10000\nInventory value: 2300'
+    assert.strictEqual(expectedString, recordStore.reportFinances())
+  })
 })

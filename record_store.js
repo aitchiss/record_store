@@ -36,6 +36,10 @@ RecordStore.prototype = {
     return this.inventory.reduce(function(acc, record){
       return acc + record.price
     }, 0)
+  },
+
+  reportFinances: function(){
+    return 'Current balance: ' + this.balance + '\nInventory value: ' + this.getInventoryValue()
   }
 }
 
