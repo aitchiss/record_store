@@ -47,4 +47,11 @@ describe('RecordStore tests', function(){
     var expectedString = "Bruce Springsteen: 'Darkness on the Edge of Town'\nThe Hold Steady: 'Stay Positive'"
     assert.strictEqual(expectedString, recordStore.printInventory())
   })
+
+  it('can sell a record, increment balance', function(){
+    var record1 = new Record('Bruce Springsteen', 'Darkness on the Edge of Town', 'rock', 1299)
+    recordStore.addRecord(record1)
+    recordStore.sell(record1)
+    assert.strictEqual(11299, recordStore.balance)
+  })
 })

@@ -24,6 +24,10 @@ RecordStore.prototype = {
       }
     }.bind(this))
     return inventoryList
+  },
+
+  sell: function(record){
+    this.balance += record.price
   }
 }
 
