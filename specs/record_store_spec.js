@@ -28,4 +28,9 @@ describe('RecordStore tests', function(){
     recordStore.addRecord(record2)
     assert.strictEqual(2, recordStore.inventory.length)
   }
+
+  it('prints properties as string', function(){
+    var expectedString = 'CC Records: Edinburgh'
+    assert.strictEqual(expectedString, recordStore.printStoreInfo())
+  })
 })
