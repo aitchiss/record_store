@@ -54,4 +54,20 @@ describe('RecordStore tests', function(){
     recordStore.sell(record1)
     assert.strictEqual(11299, recordStore.balance)
   })
+
+  it('removes record from inventory when sold', function(){
+    var record1 = new Record('Bruce Springsteen', 'Darkness on the Edge of Town', 'rock', 1299)
+    recordStore.addRecord(record1)
+    recordStore.sell(record1)
+    assert.strictEqual(0, recordStore.inventory.length)
+  })
+
+  it('removes correct record when sold', function(){
+    var record1 = new Record('Bruce Springsteen', 'Darkness on the Edge of Town', 'rock', 1299)
+    var record2 = new Record('The Hold Steady', 'Stay Positive', 'rock', 1199)
+    recordStore.addRecord(record1)
+    recordStore.addRecord(record2)
+    recordStore.sell(record1)
+    assert.strictEqual(record2, recordStore.inventory[0])
+  })
 })
