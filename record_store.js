@@ -14,12 +14,23 @@ RecordStore.prototype = {
     return this.name + ": " + this.city
   },
 
-  printInventory: function(){
+  filterInventoryByGenre: function(genre){
+    if (genre){
+      return this.inventory.filter(function(record){
+        return record.genre === genre
+      })
+    } else {
+      return this.inventory
+    }
+  },
+
+  printInventory: function(genre){
     var inventoryList =""
-    this.inventory.forEach(function(record){
+    var records = this.filterInventoryByGenre(genre)
+    records.forEach(function(record){
       inventoryList += record.artist + ": '" + record.title + "'"
 
-      if (this.inventory.indexOf(record) !== (this.inventory.length - 1)){
+      if (records.indexOf(record) !== (records.length - 1)){
         inventoryList += "\n"
       }
     }.bind(this))

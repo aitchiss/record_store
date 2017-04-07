@@ -87,4 +87,15 @@ describe('RecordStore tests', function(){
     var expectedString = 'Current balance: 10000\nInventory value: 2300'
     assert.strictEqual(expectedString, recordStore.reportFinances())
   })
+
+  it('can list inventory by genre', function(){
+    var record1 = new Record('Bruce Springsteen', 'Darkness on the Edge of Town', 'rock', 1200)
+    var record2 = new Record('The Hold Steady', 'Stay Positive', 'rock', 1100)
+    var record3 = new Record('Jimmy Eat World', 'Bleed American', 'emo', 1200)
+    recordStore.addRecord(record1)
+    recordStore.addRecord(record2)
+    recordStore.addRecord(record3)
+    var expectedString = "Jimmy Eat World: 'Bleed American'"
+    assert.strictEqual(expectedString, recordStore.printInventory('emo'))
+  })
 })
