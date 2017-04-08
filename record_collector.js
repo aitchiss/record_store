@@ -5,12 +5,20 @@ var RecordCollector = function(initialFunds){
 
 RecordCollector.prototype = {
   buy: function(record){
-    this.cash -= record.price
-    this.collection.push(record)
+    if (this.cash >= record.price){
+      this.cash -= record.price
+      this.collection.push(record)
+    }
   },
 
   sell: function(record){
     this.cash += record.price
+    this.removeFromCollection(record)
+  },
+
+  removeFromCollection: function(record){
+    var index = this.collection.indexOf(record)
+    this.collection.splice(index, 1)
   }
 }
 

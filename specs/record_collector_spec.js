@@ -37,4 +37,18 @@ describe('Record Collector tests', function(){
     assert.strictEqual(3000, recordCollector.cash)
   })
 
+  it('removes from collection when record sold', function(){
+    var record = new Record('Beastie Boys', 'Hello Nasty', 'Hip Hop', 1000)
+    recordCollector.buy(record)
+    recordCollector.sell(record)
+    assert.strictEqual(0, recordCollector.collection.length)
+  })
+
+  it('can\'t buy record if insufficient cash', function(){
+    var expensiveRecord = new Record('The Clash', 'Give \'em Enough Rope', 'Punk', 3100)
+    recordCollector.buy(expensiveRecord)
+    assert.strictEqual(0, recordCollector.collection.length)
+    assert.strictEqual(3000, recordCollector.cash)
+  })
+
 })
