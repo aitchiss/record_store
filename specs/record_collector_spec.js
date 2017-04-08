@@ -59,4 +59,12 @@ describe('Record Collector tests', function(){
     assert.strictEqual(1500, recordCollector.collection.getTotalValue())
   })
 
+  it('can get total value of genre', function(){
+    var record1 = new Record('Beastie Boys', 'Hello Nasty', 'Hip Hop', 1000)
+    var record2 = new Record('The Clash', 'Give \'em Enough Rope', 'Punk', 500)
+    recordCollector.buy(record1)
+    recordCollector.buy(record2)
+    assert.strictEqual(500, recordCollector.collection.getTotalValue('Punk'))
+  })
+
 })
