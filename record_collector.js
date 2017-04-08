@@ -1,25 +1,24 @@
+var RecordInventory = require('./record_inventory.js')
+
 var RecordCollector = function(initialFunds){
   this.cash = initialFunds
-  this.collection = []
+  this.collection = new RecordInventory()
 }
 
 RecordCollector.prototype = {
   buy: function(record){
     if (this.cash >= record.price){
       this.cash -= record.price
-      this.collection.push(record)
+      this.collection.add(record)
     }
   },
 
   sell: function(record){
     this.cash += record.price
-    this.removeFromCollection(record)
+    this.collection.remove(record)
   },
 
-  removeFromCollection: function(record){
-    var index = this.collection.indexOf(record)
-    this.collection.splice(index, 1)
-  }
+
 }
 
 

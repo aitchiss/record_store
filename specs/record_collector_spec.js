@@ -15,7 +15,7 @@ describe('Record Collector tests', function(){
   })
 
   it('starts with an empty collection', function(){
-    assert.strictEqual(0, recordCollector.collection.length)
+    assert.strictEqual(0, recordCollector.collection.getLength())
   })
 
   it('can buy a record & decrease cash', function(){
@@ -27,7 +27,7 @@ describe('Record Collector tests', function(){
   it('adds to collection by buying record', function(){
     var record = new Record('Beastie Boys', 'Hello Nasty', 'Hip Hop', 1000)
     recordCollector.buy(record)
-    assert.strictEqual(1, recordCollector.collection.length)
+    assert.strictEqual(1, recordCollector.collection.getLength())
   })
 
   it('can sell record & increase funds', function(){
@@ -41,13 +41,13 @@ describe('Record Collector tests', function(){
     var record = new Record('Beastie Boys', 'Hello Nasty', 'Hip Hop', 1000)
     recordCollector.buy(record)
     recordCollector.sell(record)
-    assert.strictEqual(0, recordCollector.collection.length)
+    assert.strictEqual(0, recordCollector.collection.getLength())
   })
 
   it('can\'t buy record if insufficient cash', function(){
     var expensiveRecord = new Record('The Clash', 'Give \'em Enough Rope', 'Punk', 3100)
     recordCollector.buy(expensiveRecord)
-    assert.strictEqual(0, recordCollector.collection.length)
+    assert.strictEqual(0, recordCollector.collection.getLength())
     assert.strictEqual(3000, recordCollector.cash)
   })
 
