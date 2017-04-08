@@ -30,4 +30,11 @@ describe('Record Collector tests', function(){
     assert.strictEqual(1, recordCollector.collection.length)
   })
 
+  it('can sell record & increase funds', function(){
+    var record = new Record('Beastie Boys', 'Hello Nasty', 'Hip Hop', 1000)
+    recordCollector.buy(record)
+    recordCollector.sell(record)
+    assert.strictEqual(3000, recordCollector.cash)
+  })
+
 })
