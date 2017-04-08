@@ -42,8 +42,9 @@ RecordInventory.prototype = {
     return inventoryList
   },
 
-  getTotalValue: function(){
-    return this.inventory.reduce(function(acc, record){
+  getTotalValue: function(genre){
+    var records = this.getInventoryByGenre(genre)
+    return records.reduce(function(acc, record){
       return acc + record.price
     }, 0)
   },
