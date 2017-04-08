@@ -53,7 +53,14 @@ RecordInventory.prototype = {
     return _.maxBy(this.inventory, function(record){
       return record.price
     })
+  },
+
+  sortByValueLowToHigh: function(){
+    this.inventory.sort(function(a, b){
+      return a.price - b.price
+    })
   }
+
 }
 
 module.exports = RecordInventory
