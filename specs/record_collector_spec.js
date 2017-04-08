@@ -67,4 +67,12 @@ describe('Record Collector tests', function(){
     assert.strictEqual(500, recordCollector.collection.getTotalValue('Punk'))
   })
 
+  it('can get most valuable record', function(){
+    var record1 = new Record('Beastie Boys', 'Hello Nasty', 'Hip Hop', 1000)
+    var record2 = new Record('The Clash', 'Give \'em Enough Rope', 'Punk', 500)
+    recordCollector.buy(record1)
+    recordCollector.buy(record2)
+    assert.strictEqual(record1, recordCollector.collection.getMostValuableRecord())
+  })
+
 })
