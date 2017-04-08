@@ -1,8 +1,15 @@
+
+
 var RecordInventory = function(){
   this.inventory = []
 }
 
 RecordInventory.prototype = {
+
+  getLength: function(){
+    return this.inventory.length
+  },
+
   add: function(record){
     this.inventory.push(record)
   },
