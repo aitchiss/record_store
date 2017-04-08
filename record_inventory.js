@@ -1,4 +1,4 @@
-
+var _ = require('lodash')
 
 var RecordInventory = function(){
   this.inventory = []
@@ -48,6 +48,12 @@ RecordInventory.prototype = {
       return acc + record.price
     }, 0)
   },
+
+  getMostValuableRecord: function(){
+    return _.maxBy(this.inventory, function(record){
+      return record.price
+    })
+  }
 }
 
 module.exports = RecordInventory

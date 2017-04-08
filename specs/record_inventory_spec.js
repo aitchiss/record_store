@@ -62,5 +62,13 @@ describe('Record Inventory tests', function(){
     assert.strictEqual(500, recordInventory.getTotalValue('Punk'))
   })
 
+  it('can return most valuable record', function(){
+    var record1 = new Record('Beastie Boys', 'Hello Nasty', 'Hip Hop', 1000)
+    var record2 = new Record('The Clash', 'Give \'em Enough Rope', 'Punk', 500)
+    recordInventory.add(record1)
+    recordInventory.add(record2)
+    assert.strictEqual(record1, recordInventory.getMostValuableRecord())
+  })
+
   
 })
