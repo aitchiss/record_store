@@ -14,7 +14,11 @@ describe('Record Collector tests', function(){
     assert.strictEqual(3000, recordCollector.cash)
   })
 
-  it('can buy a record & descrease cash', function(){
+  it('starts with an empty collection', function(){
+    assert.strictEqual(0, recordCollector.collection.length)
+  })
+
+  it('can buy a record & decrease cash', function(){
     var record = new Record('Beastie Boys', 'Hello Nasty', 'Hip Hop', 1000)
     recordCollector.buy(record)
     assert.strictEqual(2000, recordCollector.cash)
