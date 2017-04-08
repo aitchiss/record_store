@@ -18,6 +18,10 @@ RecordCollector.prototype = {
     this.collection.remove(record)
   },
 
+  compareValueWithAnotherCollector: function(recordCollector){
+    return this.collection.getTotalValue() - recordCollector.collection.getTotalValue()
+  }
+
 
 }
 

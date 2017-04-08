@@ -75,4 +75,16 @@ describe('Record Collector tests', function(){
     assert.strictEqual(record1, recordCollector.collection.getMostValuableRecord())
   })
 
+  it('can compare value of collection to another collector', function(){
+    var record1 = new Record('Beastie Boys', 'Hello Nasty', 'Hip Hop', 1000)
+    var record2 = new Record('The Clash', 'Give \'em Enough Rope', 'Punk', 500)
+    recordCollector.buy(record1)
+    recordCollector.buy(record2)
+
+    var recordCollector2 = new RecordCollector(4000)
+    recordCollector2.buy(record2)
+
+    assert.strictEqual(1000, recordCollector.compareValueWithAnotherCollector(recordCollector2))
+  })
+
 })
