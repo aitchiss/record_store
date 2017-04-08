@@ -82,5 +82,17 @@ describe('Record Inventory tests', function(){
     assert.strictEqual(record1, recordInventory.inventory[2])
   })
 
+  it('can sort by value high to low', function(){
+    var record1 = new Record('Beastie Boys', 'Hello Nasty', 'Hip Hop', 1000)
+    var record2 = new Record('The Clash', 'Give \'em Enough Rope', 'Punk', 500)
+    var record3 = new Record('Sleater Kinney', 'Dig Me Out', 'Punk', 999)
+    recordInventory.add(record1)
+    recordInventory.add(record2)
+    recordInventory.add(record3)
+    recordInventory.sortByValueHighToLow()
+    assert.strictEqual(record1, recordInventory.inventory[0])
+    assert.strictEqual(record2, recordInventory.inventory[2])
+  })
+
   
 })

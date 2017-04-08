@@ -59,6 +59,12 @@ RecordInventory.prototype = {
     this.inventory.sort(function(a, b){
       return a.price - b.price
     })
+  },
+
+  sortByValueHighToLow: function(){
+    this.inventory.sort(function(a, b){
+      return b.price - a.price
+    })
   }
 
 }
