@@ -45,4 +45,12 @@ describe('Record Inventory tests', function(){
     var expectedString = "Bruce Springsteen: 'Darkness on the Edge of Town'\nThe Hold Steady: 'Stay Positive'"
     assert.strictEqual(expectedString, recordInventory.print())
   })
+
+  it('can get total value of contents', function(){
+    var record1 = new Record('Bruce Springsteen', 'Darkness on the Edge of Town', 'rock', 1200)
+    var record2 = new Record('The Hold Steady', 'Stay Positive', 'rock', 1100)
+    recordInventory.add(record1)
+    recordInventory.add(record2)
+    assert.strictEqual(2300, recordInventory.getTotalValue())
+  })
 })

@@ -33,7 +33,13 @@ RecordInventory.prototype = {
       }
     })
     return inventoryList
-  }
+  },
+
+  getTotalValue: function(){
+    return this.inventory.reduce(function(acc, record){
+      return acc + record.price
+    }, 0)
+  },
 }
 
 module.exports = RecordInventory
