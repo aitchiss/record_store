@@ -53,4 +53,14 @@ describe('Record Inventory tests', function(){
     recordInventory.add(record2)
     assert.strictEqual(2300, recordInventory.getTotalValue())
   })
+
+  it('can get total value by genre', function(){
+    var record1 = new Record('Beastie Boys', 'Hello Nasty', 'Hip Hop', 1000)
+    var record2 = new Record('The Clash', 'Give \'em Enough Rope', 'Punk', 500)
+    recordInventory.add(record1)
+    recordInventory.add(record2)
+    assert.strictEqual(500, recordInventory.getTotalValue('Punk'))
+  })
+
+  
 })
