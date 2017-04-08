@@ -36,4 +36,13 @@ describe('Record Inventory tests', function(){
     recordInventory.add(record3)
     assert.strictEqual(1, recordInventory.getInventoryByGenre('emo').length)
   })
+
+  it('can print contents', function(){
+    var record1 = new Record('Bruce Springsteen', 'Darkness on the Edge of Town', 'rock', 1299)
+    var record2 = new Record('The Hold Steady', 'Stay Positive', 'rock', 1199)
+    recordInventory.add(record1)
+    recordInventory.add(record2)
+    var expectedString = "Bruce Springsteen: 'Darkness on the Edge of Town'\nThe Hold Steady: 'Stay Positive'"
+    assert.strictEqual(expectedString, recordInventory.print())
+  })
 })
